@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import { useProductsApi, useShopApi } from '~/services/api'
-import type { ProductSummary, PublicSummary } from '~/types/api'
+import type { ProductSummary, PublicSummary, PageMeta } from '~/types/api'
 
 const productsApi = useProductsApi()
 const shopApi = useShopApi()
 
 // 获取热门商品
-const { data: productsData, status: productsStatus } = await useAsyncData(
+const { data: productsData, status: productsStatus } = await useAsyncData<PageMeta<ProductSummary>>(
   'hot-products',
   () => productsApi.listProducts({ size: 8, sort: ['sales,desc'] })
 )
 
 // 获取推荐店铺
-const { data: shopsData, status: shopsStatus } = await useAsyncData(
+const { data: shopsData, status: shopsStatus } = await useAsyncData<PageMeta<PublicSummary>>(
   'featured-shops',
   () => shopApi.listShops({ size: 6 })
 )
 
-const products = computed<ProductSummary[]>(() => (productsData.value as any)?.items ?? [])
-const shops = computed<PublicSummary[]>(() => (shopsData.value as any)?.items ?? [])
+const products = computed<ProductSummary[]>(() => productsData.value?.items ?? [])
+const shops = computed<PublicSummary[]>(() => shopsData.value?.items ?? [])
 
 // 分类
 const categories = [

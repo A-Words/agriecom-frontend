@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useProductsApi } from '~/services/api'
-import type { ProductSummary } from '~/types/api'
+import type { ProductSummary, PageMeta } from '~/types/api'
 
 const route = useRoute()
 const productsApi = useProductsApi()
@@ -45,7 +45,7 @@ const queryParams = computed(() => ({
 }))
 
 // 获取商品列表
-const { data, status, refresh } = await useAsyncData(
+const { data, status, refresh } = await useAsyncData<PageMeta<ProductSummary>>(
   'products-list',
   () => keyword.value
     ? productsApi.searchProducts({ q: keyword.value, ...queryParams.value })
@@ -53,7 +53,7 @@ const { data, status, refresh } = await useAsyncData(
   { watch: [queryParams] }
 )
 
-const products = computed<ProductSummary[]>(() => (data.value as any)?.items ?? [])
+const products = computed<ProductSummary[]>(() => data.value?.items ?? [])
 const totalElements = computed(() => (data.value as any)?.totalElements ?? 0)
 const totalPages = computed(() => (data.value as any)?.totalPages ?? 0)
 

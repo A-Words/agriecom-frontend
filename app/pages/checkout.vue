@@ -27,7 +27,7 @@ onMounted(async () => {
 })
 
 // 获取收货地址
-const { data: addresses, refresh: refreshAddresses } = await useAsyncData(
+const { data: addresses, refresh: refreshAddresses } = await useAsyncData<AddressResponse[]>(
   'checkout-addresses',
   () => userApi.listAddresses()
 )
@@ -38,9 +38,9 @@ const showAddressModal = ref(false)
 
 // 默认选中默认地址
 watch(addresses, (addrs) => {
-  if (addrs?.length) {
+  if (addrs && addrs.length > 0) {
     const defaultAddr = addrs.find(a => a.isDefault)
-    selectedAddressId.value = defaultAddr?.id ?? addrs[0].id
+    selectedAddressId.value = defaultAddr?.id ?? addrs[0]?.id ?? null
   }
 }, { immediate: true })
 

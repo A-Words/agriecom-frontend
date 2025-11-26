@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useSessionStore } from '~/stores/session'
 import { useOrdersApi } from '~/services/api'
-import type { OrderSummary } from '~/types/api'
+import type { OrderSummary, PageResultOrderSummary } from '~/types/api'
 
 const sessionStore = useSessionStore()
 const ordersApi = useOrdersApi()
@@ -17,7 +17,7 @@ onMounted(() => {
 const page = ref(0)
 const size = ref(10)
 
-const { data, status, refresh } = await useAsyncData(
+const { data, status, refresh } = await useAsyncData<PageResultOrderSummary>(
   'my-orders',
   () => ordersApi.listMyOrders({ page: page.value, size: size.value }),
   { watch: [page] }

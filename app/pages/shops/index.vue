@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useShopApi } from '~/services/api'
-import type { PublicSummary } from '~/types/api'
+import type { PublicSummary, PageMeta } from '~/types/api'
 
 const shopApi = useShopApi()
 
@@ -14,7 +14,7 @@ const queryParams = computed(() => ({
   keyword: keyword.value || undefined
 }))
 
-const { data, status, refresh } = await useAsyncData(
+const { data, status, refresh } = await useAsyncData<PageMeta<PublicSummary>>(
   'shops-list',
   () => shopApi.listShops(queryParams.value),
   { watch: [queryParams] }

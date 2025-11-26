@@ -20,7 +20,7 @@ onMounted(() => {
   }
 })
 
-const { data: products, status, refresh } = await useAsyncData(
+const { data: products, status, refresh } = await useAsyncData<Detail[]>(
   'my-products',
   () => productsApi.listMyProducts()
 )

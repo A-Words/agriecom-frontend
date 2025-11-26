@@ -17,7 +17,7 @@ onMounted(() => {
   }
 })
 
-const { data: order, status, refresh } = await useAsyncData(
+const { data: order, status, refresh } = await useAsyncData<ShopOrderDetail>(
   `shop-order-${orderId}`,
   () => ordersApi.getShopOrderDetail(orderId)
 )

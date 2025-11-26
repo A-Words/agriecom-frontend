@@ -13,7 +13,7 @@ const sessionStore = useSessionStore()
 const toast = useToast()
 
 // 获取商品详情
-const { data: product, status } = await useAsyncData(
+const { data: product, status } = await useAsyncData<Detail>(
   `product-${productId}`,
   () => productsApi.getProductDetail(productId)
 )

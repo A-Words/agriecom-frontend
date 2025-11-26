@@ -66,7 +66,7 @@ useSeoMeta({
     <div class="w-full max-w-md">
       <div class="text-center mb-8">
         <NuxtLink to="/" class="inline-flex items-center gap-2 mb-4">
-          <UIcon name="i-heroicons-leaf" class="w-10 h-10 text-primary-600" />
+          <UIcon name="i-lucide-leaf" class="w-10 h-10 text-primary-600" />
           <span class="text-2xl font-bold text-gray-900 dark:text-white">农优选</span>
         </NuxtLink>
         <h1 class="text-2xl font-bold text-gray-900 dark:text-white">创建账户</h1>

@@ -7,7 +7,7 @@ const shopId = Number(route.params.id)
 
 const shopApi = useShopApi()
 
-const { data, status } = await useAsyncData(
+const { data, status } = await useAsyncData<PublicDetail>(
   `shop-${shopId}`,
   () => shopApi.getShop(shopId)
 )
@@ -46,7 +46,7 @@ useSeoMeta({
       <!-- 店铺信息 -->
       <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-8">
         <div class="flex items-start gap-6">
-          <div class="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center overflow-hidden flex-shrink-0">
+          <div class="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center overflow-hidden shrink-0">
             <img
               v-if="shop.logoUrl"
               :src="shop.logoUrl"

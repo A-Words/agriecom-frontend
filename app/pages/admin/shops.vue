@@ -22,7 +22,7 @@ onMounted(() => {
 
 const currentStatus = ref<ShopStatus>('PENDING_REVIEW')
 
-const { data: shops, status, refresh } = await useAsyncData(
+const { data: shops, status, refresh } = await useAsyncData<DetailResponse[]>(
   'admin-shops',
   () => adminApi.listByStatus({ status: currentStatus.value }),
   { watch: [currentStatus] }

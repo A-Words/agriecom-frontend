@@ -88,7 +88,7 @@ const handleLogout = async () => {
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
           <NuxtLink to="/" class="flex items-center gap-2">
-            <UIcon name="i-heroicons-leaf" class="w-8 h-8 text-primary-600" />
+            <UIcon name="i-lucide-leaf" class="w-8 h-8 text-primary-600" />
             <span class="text-xl font-bold text-gray-900 dark:text-white">农优选</span>
           </NuxtLink>
 
@@ -233,6 +233,6 @@ const handleLogout = async () => {
     </footer>
 
     <!-- 全局通知 -->
-    <UNotifications />
+    <UToaster />
   </div>
 </template>

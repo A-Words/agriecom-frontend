@@ -20,7 +20,7 @@ onMounted(() => {
   }
 })
 
-const { data: shop, status, refresh } = await useAsyncData('my-shop', () => shopApi.getMyShop())
+const { data: shop, status, refresh } = await useAsyncData<DetailResponse>('my-shop', () => shopApi.getMyShop())
 
 const editing = ref(false)
 const saving = ref(false)

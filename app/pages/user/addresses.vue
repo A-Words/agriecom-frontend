@@ -14,7 +14,7 @@ onMounted(() => {
   }
 })
 
-const { data: addresses, status, refresh } = await useAsyncData(
+const { data: addresses, status, refresh } = await useAsyncData<AddressResponse[]>(
   'my-addresses',
   () => userApi.listAddresses()
 )
