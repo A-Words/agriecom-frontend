@@ -5,8 +5,8 @@ import type {
   PageResultShopOrderSummary,
   ShipRequest,
   ShopOrderDetail
-} from '../../types/api'
-import { useApi } from '../../composables/useApi'
+} from '~/types/api'
+import { useApi } from '~/composables/useApi'
 
 interface PaginationQuery {
   page?: number

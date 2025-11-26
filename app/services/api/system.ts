@@ -1,5 +1,5 @@
-import type { ApiMapResponse } from '../../types/api'
-import { useApi } from '../../composables/useApi'
+import type { ApiMapResponse } from '~/types/api'
+import { useApi } from '~/composables/useApi'
 
 export const useSystemApi = () => {
   const api = useApi()

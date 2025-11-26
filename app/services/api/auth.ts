@@ -1,5 +1,5 @@
-import type { LoginRequest, RegisterRequest, UserInfo } from '../../types/api'
-import { useApi } from '../../composables/useApi'
+import type { LoginRequest, RegisterRequest, UserInfo } from '~/types/api'
+import { useApi } from '~/composables/useApi'
 
 export const useAuthApi = () => {
   const api = useApi()

@@ -1,10 +1,11 @@
 import type {
   CreateRequest,
   Detail,
-  PageResultPublicSummary,
+  PageMeta,
+  ProductSummary,
   UpdateRequest
-} from '../../types/api'
-import { useApi } from '../../composables/useApi'
+} from '~/types/api'
+import { useApi } from '~/composables/useApi'
 
 interface ProductQuery {
   page?: number
@@ -26,11 +27,11 @@ interface SearchQuery extends Omit<ProductQuery, 'keyword' | 'include_inactive_s
 export const useProductsApi = () => {
   const api = useApi()
 
-  const listProducts = (query?: ProductQuery) => api.get<PageResultPublicSummary>('/api/v1/products', query)
+  const listProducts = (query?: ProductQuery) => api.get<PageMeta<ProductSummary>>('/api/v1/products', query)
 
   const getProductDetail = (productId: number) => api.get<Detail>(`/api/v1/products/${productId}`)
 
-  const searchProducts = (query: SearchQuery) => api.get<PageResultPublicSummary>('/api/v1/products/search', query)
+  const searchProducts = (query: SearchQuery) => api.get<PageMeta<ProductSummary>>('/api/v1/products/search', query)
 
   const listMyProducts = () => api.get<Detail[]>('/api/v1/my-shop/products')
 
@@ -41,6 +42,10 @@ export const useProductsApi = () => {
 
   const deleteProduct = (productId: number) => api.delete<void>(`/api/v1/my-shop/products/${productId}`)
 
+  const publishProduct = (productId: number) => api.put<Detail>(`/api/v1/my-shop/products/${productId}/publish`)
+
+  const unpublishProduct = (productId: number) => api.put<Detail>(`/api/v1/my-shop/products/${productId}/unpublish`)
+
   return {
     listProducts,
     getProductDetail,
@@ -48,6 +53,8 @@ export const useProductsApi = () => {
     listMyProducts,
     createProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    publishProduct,
+    unpublishProduct
   }
 }

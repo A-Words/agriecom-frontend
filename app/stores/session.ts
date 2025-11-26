@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
-import type { LoginRequest, ProfileResponse, RegisterRequest, UserInfo } from '../types/api'
-import { useAuthApi, useUserApi } from '../services/api'
+import type { LoginRequest, ProfileResponse, RegisterRequest, UserInfo } from '~/types/api'
+import { useAuthApi, useUserApi } from '~/services/api'
 
 export const useSessionStore = defineStore('session', () => {
   const authUser = ref<UserInfo | null>(null)

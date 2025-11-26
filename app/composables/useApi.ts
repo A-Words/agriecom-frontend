@@ -1,4 +1,3 @@
-import { useRuntimeConfig } from 'nuxt/app'
 import { $fetch } from 'ofetch'
 import type { FetchContext, FetchOptions } from 'ofetch'
 

@@ -1,5 +1,5 @@
-import type { DetailResponse, ShopStatus } from '../../types/api'
-import { useApi } from '../../composables/useApi'
+import type { DetailResponse, ShopStatus } from '~/types/api'
+import { useApi } from '~/composables/useApi'
 
 interface ListQuery {
   status?: ShopStatus

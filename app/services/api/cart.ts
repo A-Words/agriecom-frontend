@@ -2,8 +2,8 @@ import type {
   AddItemRequest,
   CartDetail,
   UpdateItemRequest
-} from '../../types/api'
-import { useApi } from '../../composables/useApi'
+} from '~/types/api'
+import { useApi } from '~/composables/useApi'
 
 export const useCartApi = () => {
   const api = useApi()

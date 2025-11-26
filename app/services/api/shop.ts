@@ -1,11 +1,12 @@
 import type {
   CreateRequest,
   DetailResponse,
-  PageResultPublicSummary,
+  PageMeta,
   PublicDetail,
+  PublicSummary,
   UpdateRequest
-} from '../../types/api'
-import { useApi } from '../../composables/useApi'
+} from '~/types/api'
+import { useApi } from '~/composables/useApi'
 
 interface ShopListQuery {
   page?: number
@@ -22,7 +23,7 @@ export const useShopApi = () => {
 
   const applyShop = (payload: CreateRequest) => api.post<DetailResponse>('/api/v1/shops', payload)
 
-  const listShops = (query?: ShopListQuery) => api.get<PageResultPublicSummary>('/api/v1/shops', query)
+  const listShops = (query?: ShopListQuery) => api.get<PageMeta<PublicSummary>>('/api/v1/shops', query)
 
   const getShop = (shopId: number) => api.get<PublicDetail>(`/api/v1/shops/${shopId}`)
 

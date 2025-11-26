@@ -1,75 +1,118 @@
-# Nuxt Minimal Starter
+# 农优选 - 农产品电商前端
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+农优选是一个连接农户与消费者的农产品电商平台，提供新鲜、优质的农产品直供服务。
 
-## Setup
+## 技术栈
 
-Make sure to install dependencies:
+- **框架**: [Nuxt.js 4](https://nuxt.com/) + [Vue 3](https://vuejs.org/)
+- **语言**: [TypeScript](https://www.typescriptlang.org/)
+- **UI 框架**: [Nuxt UI](https://ui.nuxt.com/) (基于 Tailwind CSS)
+- **状态管理**: [Pinia](https://pinia.vuejs.org/)
+- **HTTP 客户端**: [ofetch](https://github.com/unjs/ofetch)
+- **认证**: JWT + HttpOnly Cookie
+
+## 功能模块
+
+### 用户端
+- 🔐 用户注册/登录/退出
+- 👤 个人资料管理
+- 📍 收货地址管理
+- 📦 订单查看与取消
+
+### 商品
+- 🛒 商品列表浏览（分类、排序、分页）
+- 🔍 商品搜索
+- 📄 商品详情查看
+
+### 购物车
+- ➕ 添加商品到购物车
+- ✏️ 修改商品数量
+- 🗑️ 删除商品
+- 🧹 清空购物车
+
+### 店铺
+- 🏪 店铺列表浏览
+- 📋 店铺详情及商品展示
+
+### 商户端
+- 📝 申请开店
+- 🏬 店铺信息管理
+- 📦 商品上下架管理
+- 🚚 订单发货管理
+
+### 管理员
+- ✅ 店铺审核（批准/拒绝/暂停）
+
+## 项目结构
+
+```
+app/
+├── app.vue              # 根组件
+├── error.vue            # 错误页面
+├── assets/css/          # 全局样式
+├── components/          # 公共组件
+├── composables/         # 组合式函数
+├── layouts/             # 布局组件
+├── middleware/          # 路由中间件
+├── pages/               # 页面组件
+│   ├── auth/            # 认证页面
+│   ├── products/        # 商品页面
+│   ├── shops/           # 店铺页面
+│   ├── user/            # 用户中心
+│   ├── seller/          # 商户管理
+│   └── admin/           # 管理后台
+├── services/api/        # API 服务
+├── stores/              # Pinia 状态管理
+└── types/               # TypeScript 类型定义
+```
+
+## 快速开始
+
+### 环境要求
+
+- Node.js >= 18.x
+- npm >= 9.x
+
+### 安装依赖
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+### 配置
 
-Start the development server on `http://localhost:3000`:
+在 `nuxt.config.ts` 中配置后端 API 地址：
+
+```ts
+export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: 'http://127.0.0.1:8080'
+    }
+  }
+})
+```
+
+### 开发环境
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+访问 http://localhost:3000
 
-Build the application for production:
+### 生产构建
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+### 预览生产构建
 
 ```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## 相关项目
+
+- [agriecom-backend](https://github.com/A-Words/agriecom-backend) - 后端 Spring Boot 项目

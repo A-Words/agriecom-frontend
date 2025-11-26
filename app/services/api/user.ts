@@ -3,8 +3,8 @@ import type {
   CreateAddressRequest,
   ProfileResponse,
   UpdateProfileRequest
-} from '../../types/api'
-import { useApi } from '../../composables/useApi'
+} from '~/types/api'
+import { useApi } from '~/composables/useApi'
 
 export const useUserApi = () => {
   const api = useApi()
@@ -19,5 +19,13 @@ export const useUserApi = () => {
   const createAddress = (payload: CreateAddressRequest) =>
     api.post<AddressResponse>('/api/v1/me/addresses', payload)
 
-  return { getProfile, updateProfile, listAddresses, createAddress }
+  const updateAddress = (id: number, payload: CreateAddressRequest) =>
+    api.put<AddressResponse>(`/api/v1/me/addresses/${id}`, payload)
+
+  const deleteAddress = (id: number) => api.delete<void>(`/api/v1/me/addresses/${id}`)
+
+  const setDefaultAddress = (id: number) =>
+    api.put<AddressResponse>(`/api/v1/me/addresses/${id}/default`)
+
+  return { getProfile, updateProfile, listAddresses, createAddress, updateAddress, deleteAddress, setDefaultAddress }
 }
