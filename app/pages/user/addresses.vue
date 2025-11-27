@@ -134,31 +134,31 @@ useSeoMeta({
           <form @submit.prevent="handleSave" class="space-y-4">
             <div class="grid grid-cols-2 gap-4">
               <UFormField label="收货人" required>
-                <UInput v-model="form.recipientName" placeholder="请输入收货人姓名" />
+                <UInput v-model="form.recipientName" placeholder="请输入收货人姓名" class="w-full" />
               </UFormField>
               <UFormField label="手机号" required>
-                <UInput v-model="form.phone" placeholder="请输入手机号" />
+                <UInput v-model="form.phone" placeholder="请输入手机号" class="w-full" />
               </UFormField>
             </div>
 
             <div class="grid grid-cols-3 gap-4">
               <UFormField label="省份" required>
-                <UInput v-model="form.province" placeholder="省份" />
+                <UInput v-model="form.province" placeholder="省份" class="w-full" />
               </UFormField>
               <UFormField label="城市" required>
-                <UInput v-model="form.city" placeholder="城市" />
+                <UInput v-model="form.city" placeholder="城市" class="w-full" />
               </UFormField>
               <UFormField label="区县" required>
-                <UInput v-model="form.district" placeholder="区县" />
+                <UInput v-model="form.district" placeholder="区县" class="w-full" />
               </UFormField>
             </div>
 
             <UFormField label="详细地址" required>
-              <UInput v-model="form.street" placeholder="请输入详细地址（街道、门牌号等）" />
+              <UInput v-model="form.street" placeholder="请输入详细地址（街道、门牌号等）" class="w-full" />
             </UFormField>
 
             <UFormField label="邮政编码">
-              <UInput v-model="form.postalCode" placeholder="邮政编码（选填）" />
+              <UInput v-model="form.postalCode" placeholder="邮政编码（选填）" class="w-full" />
             </UFormField>
 
             <UCheckbox v-model="form.isDefault" label="设为默认地址" />

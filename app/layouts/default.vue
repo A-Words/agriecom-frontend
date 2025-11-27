@@ -94,13 +94,25 @@ const handleLogout = async () => {
 
           <!-- 导航链接 -->
           <nav class="hidden md:flex items-center gap-6">
-            <NuxtLink to="/" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+            <NuxtLink
+              to="/"
+              class="nav-link"
+              :class="{ 'nav-link-active': $route.path === '/' }"
+            >
               首页
             </NuxtLink>
-            <NuxtLink to="/products" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+            <NuxtLink
+              to="/products"
+              class="nav-link"
+              :class="{ 'nav-link-active': $route.path.startsWith('/products') }"
+            >
               全部商品
             </NuxtLink>
-            <NuxtLink to="/shops" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+            <NuxtLink
+              to="/shops"
+              class="nav-link"
+              :class="{ 'nav-link-active': $route.path.startsWith('/shops') }"
+            >
               店铺
             </NuxtLink>
           </nav>

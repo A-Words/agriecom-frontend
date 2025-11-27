@@ -204,29 +204,29 @@ useSeoMeta({
 
           <form @submit.prevent="handleSave" class="space-y-4">
             <UFormField label="商品名称" required>
-              <UInput v-model="form.name" placeholder="请输入商品名称" />
+              <UInput v-model="form.name" placeholder="请输入商品名称" class="w-full" />
             </UFormField>
 
             <div class="grid grid-cols-2 gap-4">
               <UFormField label="价格">
-                <UInput v-model.number="form.price" type="number" step="0.01" placeholder="0.00" />
+                <UInput v-model.number="form.price" type="number" step="0.01" placeholder="0.00" class="w-full" />
               </UFormField>
               <UFormField label="库存">
-                <UInput v-model.number="form.stock" type="number" placeholder="0" />
+                <UInput v-model.number="form.stock" type="number" placeholder="0" class="w-full" />
               </UFormField>
             </div>
 
             <div class="grid grid-cols-2 gap-4">
               <UFormField label="分类">
-                <UInput v-model="form.category" placeholder="如：新鲜蔬菜" />
+                <UInput v-model="form.category" placeholder="如：新鲜蔬菜" class="w-full" />
               </UFormField>
               <UFormField label="产地">
-                <UInput v-model="form.origin" placeholder="如：山东寿光" />
+                <UInput v-model="form.origin" placeholder="如：山东寿光" class="w-full" />
               </UFormField>
             </div>
 
             <UFormField label="商品描述">
-              <UTextarea v-model="form.description" placeholder="请输入商品描述" :rows="3" />
+              <UTextarea v-model="form.description" placeholder="请输入商品描述" :rows="3" class="w-full" />
             </UFormField>
 
             <div class="flex justify-end gap-3 pt-4">

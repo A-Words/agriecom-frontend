@@ -18,8 +18,8 @@ export default defineNuxtRouteMiddleware((to) => {
     return navigateTo(`/auth/login?redirect=${encodeURIComponent(to.fullPath)}`)
   }
 
-  // 商户页面需要SELLER角色
-  if (to.path.startsWith('/seller')) {
+  // 商户页面需要SELLER角色（/seller/apply 除外，因为它是申请入驻页面）
+  if (to.path.startsWith('/seller') && to.path !== '/seller/apply') {
     if (!sessionStore.authUser?.roles?.includes('SELLER')) {
       return navigateTo('/seller/apply')
     }

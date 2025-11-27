@@ -128,23 +128,23 @@ useSeoMeta({
       <div class="p-6">
         <form v-if="editing" @submit.prevent="handleSave" class="space-y-6 max-w-xl">
           <UFormField label="昵称">
-            <UInput v-model="form.nickname" placeholder="请输入昵称" />
+            <UInput v-model="form.nickname" placeholder="请输入昵称" class="w-full" />
           </UFormField>
 
           <UFormField label="邮箱">
-            <UInput v-model="form.email" type="email" placeholder="请输入邮箱" />
+            <UInput v-model="form.email" type="email" placeholder="请输入邮箱" class="w-full" />
           </UFormField>
 
           <UFormField label="手机号">
-            <UInput v-model="form.phone" placeholder="请输入手机号" />
+            <UInput v-model="form.phone" placeholder="请输入手机号" class="w-full" />
           </UFormField>
 
           <UFormField label="头像URL">
-            <UInput v-model="form.avatarUrl" placeholder="请输入头像图片链接" />
+            <UInput v-model="form.avatarUrl" placeholder="请输入头像图片链接" class="w-full" />
           </UFormField>
 
           <UFormField label="个人简介">
-            <UTextarea v-model="form.bio" placeholder="介绍一下自己吧" :rows="3" />
+            <UTextarea v-model="form.bio" placeholder="介绍一下自己吧" :rows="3" class="w-full" />
           </UFormField>
 
           <div class="flex gap-4">

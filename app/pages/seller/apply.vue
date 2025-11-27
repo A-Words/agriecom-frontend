@@ -60,6 +60,7 @@ useSeoMeta({
               v-model="form.name"
               placeholder="请输入店铺名称"
               size="lg"
+              class="w-full"
             />
           </UFormField>
 
@@ -68,6 +69,7 @@ useSeoMeta({
               v-model="form.description"
               placeholder="请输入店铺简介"
               :rows="4"
+              class="w-full"
             />
           </UFormField>
 
@@ -75,6 +77,7 @@ useSeoMeta({
             <UInput
               v-model="form.logoUrl"
               placeholder="https://example.com/logo.png"
+              class="w-full"
             />
           </UFormField>
 

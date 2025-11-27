@@ -42,19 +42,18 @@ useSeoMeta({
 
 <template>
   <div class="page-container">
-    <h1 class="section-title">店铺列表</h1>
-
-    <!-- 搜索 -->
+    <!-- 搜索栏 -->
     <div class="mb-8">
-      <div class="flex gap-4 max-w-md">
+      <div class="flex gap-4">
         <UInput
           v-model="keyword"
           placeholder="搜索店铺名称..."
           icon="i-heroicons-magnifying-glass"
+          size="lg"
           class="flex-1"
           @keyup.enter="handleSearch"
         />
-        <UButton @click="handleSearch">搜索</UButton>
+        <UButton size="lg" @click="handleSearch">搜索</UButton>
       </div>
     </div>
 

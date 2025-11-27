@@ -10,6 +10,15 @@
   @apply text-2xl font-bold text-gray-900 dark:text-white mb-6;
 }
 
+/* 导航链接样式 */
+.nav-link {
+  @apply text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors;
+}
+
+.nav-link-active {
+  @apply text-primary-600 dark:text-primary-400 font-medium;
+}
+
 /* 产品卡片悬停效果 */
 .product-card {
   @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
