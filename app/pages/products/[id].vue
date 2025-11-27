@@ -69,11 +69,14 @@ useSeoMeta({
 <template>
   <div class="page-container">
     <!-- 面包屑 -->
-    <UBreadcrumb class="mb-6">
-      <UBreadcrumbItem to="/">首页</UBreadcrumbItem>
-      <UBreadcrumbItem to="/products">全部商品</UBreadcrumbItem>
-      <UBreadcrumbItem>{{ product?.name || '商品详情' }}</UBreadcrumbItem>
-    </UBreadcrumb>
+    <UBreadcrumb
+      class="mb-6"
+      :items="[
+        { label: '首页', to: '/' },
+        { label: '全部商品', to: '/products' },
+        { label: product?.name || '商品详情' }
+      ]"
+    />
 
     <!-- 加载中 -->
     <div v-if="status === 'pending'" class="animate-pulse">
