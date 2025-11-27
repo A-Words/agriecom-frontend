@@ -46,7 +46,7 @@ const userMenuItems = computed(() => {
   ]
 
   // 商户功能
-  if (sessionStore.authUser?.roles?.includes('SELLER')) {
+  if (sessionStore.authUser?.roles?.includes('MERCHANT')) {
     items.push([
       { label: '我的店铺', icon: 'i-heroicons-building-storefront', to: '/seller/shop' },
       { label: '商品管理', icon: 'i-heroicons-cube', to: '/seller/products' },

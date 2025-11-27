@@ -7,14 +7,31 @@ const sessionStore = useSessionStore()
 const shopApi = useShopApi()
 const toast = useToast()
 
-onMounted(() => {
+const loading = ref(true)
+const submitting = ref(false)
+
+onMounted(async () => {
   if (!sessionStore.isAuthenticated) {
     toast.add({ title: '请先登录', color: 'warning' })
     navigateTo('/auth/login')
+    return
+  }
+
+  // 检查用户是否已有店铺或申请
+  try {
+    const shop = await shopApi.getMyShop()
+    if (shop) {
+      // 已有店铺或申请记录，跳转到店铺管理页面
+      toast.add({ title: '您已提交过开店申请', color: 'info' })
+      navigateTo('/seller/shop')
+      return
+    }
+  } catch {
+    // 没有店铺，可以继续申请
+  } finally {
+    loading.value = false
   }
 })
-
-const submitting = ref(false)
 
 const form = reactive<CreateRequest>({
   name: '',
@@ -47,7 +64,12 @@ useSeoMeta({
 
 <template>
   <div class="page-container">
-    <div class="max-w-2xl mx-auto">
+    <!-- 加载状态 -->
+    <div v-if="loading" class="flex items-center justify-center py-20">
+      <UIcon name="i-heroicons-arrow-path" class="w-8 h-8 animate-spin text-primary-500" />
+    </div>
+
+    <div v-else class="max-w-2xl mx-auto">
       <div class="text-center mb-8">
         <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">入驻开店</h1>
         <p class="text-gray-500 dark:text-gray-400">加入农优选，将您的优质农产品带给更多消费者</p>

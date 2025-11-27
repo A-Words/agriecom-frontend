@@ -14,7 +14,7 @@ onMounted(() => {
     return
   }
 
-  if (!sessionStore.authUser?.roles?.includes('SELLER')) {
+  if (!sessionStore.authUser?.roles?.includes('MERCHANT')) {
     toast.add({ title: '您还不是商户', color: 'warning' })
     navigateTo('/seller/apply')
   }

@@ -104,10 +104,10 @@ useSeoMeta({
                 <UBadge
                   v-for="role in sessionStore.profile.roles"
                   :key="role"
-                  :color="role === 'ADMIN' ? 'error' : role === 'SELLER' ? 'warning' : 'primary'"
+                  :color="role === 'ADMIN' ? 'error' : role === 'MERCHANT' ? 'warning' : 'primary'"
                   size="sm"
                 >
-                  {{ role === 'ADMIN' ? '管理员' : role === 'SELLER' ? '商户' : '用户' }}
+                  {{ role === 'ADMIN' ? '管理员' : role === 'MERCHANT' ? '商户' : '用户' }}
                 </UBadge>
               </div>
             </div>
