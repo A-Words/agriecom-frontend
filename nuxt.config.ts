@@ -1,9 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const apiBaseUrl = (
-  (globalThis as typeof globalThis & {
-    process?: { env?: Record<string, string | undefined> }
-  }).process?.env?.NUXT_PUBLIC_API_BASE_URL ?? 'http://127.0.0.1:8080'
-)
+const g = globalThis as typeof globalThis & {
+  process?: { env?: Record<string, string | undefined> }
+}
+
+// 生产环境默认使用相对路径（配合 Nginx 代理）
+// 如需直接访问后端，可设置 NUXT_PUBLIC_API_BASE_URL 环境变量
+const apiBaseUrl = g.process?.env?.NUXT_PUBLIC_API_BASE_URL ?? ''
+
+const apiTarget = 'http://127.0.0.1:8080'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -14,6 +18,14 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBaseUrl
+    }
+  },
+  nitro: {
+    devProxy: {
+      '/api/v1': {
+        target: `${apiTarget}/api/v1`,
+        changeOrigin: true
+      }
     }
   },
   app: {

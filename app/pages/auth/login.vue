@@ -70,6 +70,7 @@ useSeoMeta({
               icon="i-heroicons-user"
               size="lg"
               autocomplete="username"
+              class="w-full"
             />
           </UFormField>
 
@@ -81,6 +82,7 @@ useSeoMeta({
               icon="i-heroicons-lock-closed"
               size="lg"
               autocomplete="current-password"
+              class="w-full"
             >
               <template #trailing>
                 <UButton
